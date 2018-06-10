@@ -1,0 +1,82 @@
+/*
+   Copyright 2018 Samuel Pritchard
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ */
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'maven'
+    id 'com.github.johnrengelman.shadow' version '2.0.4'
+}
+
+group 'samophis'
+version '0.1'
+description = 'LavaClient integration for JDA.'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+def lavaClientVersion = 'v2.0'
+def jdaVersion = '3.6.0_375'
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+task updateDocs(type: Copy) {
+    dependsOn javadoc
+    from "${buildDir}/docs/javadoc"
+    into "docs"
+}
+
+shadowJar {
+    classifier = "withDependencies"
+}
+
+build {
+    dependsOn clean
+    dependsOn jar
+    dependsOn javadocJar
+    dependsOn sourcesJar
+    dependsOn shadowJar
+    dependsOn updateDocs
+    dependsOn test
+
+    jar.mustRunAfter clean
+    javadocJar.mustRunAfter jar
+    sourcesJar.mustRunAfter javadocJar
+    shadowJar.mustRunAfter sourcesJar
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+repositories {
+    jcenter()
+    maven {url 'https://jitpack.io'}
+}
+
+dependencies {
+    compile group: 'com.github.SamOphis', name: 'LavaClient', version: lavaClientVersion
+    compile group: 'net.dv8tion', name: 'JDA', version: jdaVersion
+}
+
