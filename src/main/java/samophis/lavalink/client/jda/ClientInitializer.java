@@ -26,6 +26,7 @@ public class ClientInitializer extends ListenerAdapter {
      * @param client The <b>not-null</b> LavaClient instance.
      * @throws NullPointerException If the provided client was {@code null}.
      */
+    @SuppressWarnings("WeakerAccess")
     public ClientInitializer(@Nonnull LavaClient client) {
         this.client = Asserter.requireNotNull(client);
     }

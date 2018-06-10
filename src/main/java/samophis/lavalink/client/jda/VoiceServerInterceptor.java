@@ -45,6 +45,7 @@ public class VoiceServerInterceptor extends SocketHandler {
      * @param api A <b>not-null</b> JDAImpl instance.
      * @throws NullPointerException If any of the provided parameters were {@code null}.
      */
+    @SuppressWarnings("WeakerAccess")
     public VoiceServerInterceptor(@Nonnull LavaClient client, @Nonnull JDAImpl api) {
         super(Asserter.requireNotNull(api));
         this.client = Asserter.requireNotNull(client);

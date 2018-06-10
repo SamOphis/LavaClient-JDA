@@ -21,6 +21,7 @@ import javax.annotation.Nullable;
  * @author SamOphis
  */
 
+@SuppressWarnings("unused")
 public class LavaClientManager {
     private LavaClientManager() {}
     private static final Long2ObjectMap<LavaClient> CLIENTS = new Long2ObjectOpenHashMap<>();

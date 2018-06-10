@@ -45,6 +45,7 @@ public class VoiceStateInterceptor extends VoiceStateUpdateHandler {
      * @param impl A <b>not-null</b> JDAImpl instance.
      * @throws NullPointerException If any of the provided parameters were {@code null}.
      */
+    @SuppressWarnings("WeakerAccess")
     public VoiceStateInterceptor(@Nonnull LavaClient client, @Nonnull JDAImpl impl) {
         super(Asserter.requireNotNull(impl));
         this.client = Asserter.requireNotNull(client);
