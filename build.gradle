@@ -76,7 +76,7 @@ repositories {
 }
 
 dependencies {
-    compile group: 'com.github.SamOphis', name: 'LavaClient', version: lavaClientVersion
-    compile group: 'net.dv8tion', name: 'JDA', version: jdaVersion
+    compileOnly group: 'com.github.SamOphis', name: 'LavaClient', version: lavaClientVersion
+    compileOnly group: 'net.dv8tion', name: 'JDA', version: jdaVersion
 }
 
