@@ -65,7 +65,7 @@ public class VoiceStateInterceptor extends VoiceStateUpdateHandler {
             return super.handleInternally(content);
         /* ---- */
         long user_id = content.getLong("user_id");
-        Long channel_id = content.has("channel_id") ? content.getLong("channel_id") : null;
+        Long channel_id = !content.isNull("channel_id") ? content.getLong("channel_id") : null;
         Guild guild = api.getGuildById(id);
         if (guild == null)
             return super.handleInternally(content);
