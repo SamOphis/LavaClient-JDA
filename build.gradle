@@ -27,7 +27,7 @@ description = 'LavaClient integration for JDA.'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-def lavaClientVersion = 'v2.0.2'
+def lavaClientVersion = 'v2.1.0'
 def jdaVersion = '3.6.0_375'
 
 task sourcesJar(type: Jar, dependsOn: classes) {
