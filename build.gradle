@@ -27,8 +27,8 @@ description = 'LavaClient integration for JDA.'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-def lavaClientVersion = 'v2.1.0'
-def jdaVersion = '3.6.0_375'
+def lavaClientVersion = 'v2.3.0'
+def jdaVersion = '3.6.0_376'
 
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
@@ -79,4 +79,3 @@ dependencies {
     compileOnly group: 'com.github.SamOphis', name: 'LavaClient', version: lavaClientVersion
     compileOnly group: 'net.dv8tion', name: 'JDA', version: jdaVersion
 }
-
