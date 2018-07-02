@@ -22,12 +22,12 @@ plugins {
 }
 
 group 'samophis'
-version '0.1.1'
+version '0.1.2'
 description = 'LavaClient integration for JDA.'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-def lavaClientVersion = '2.4.3'
+def lavaClientVersion = '2.4.4'
 def jdaVersion = '3.6.0_376'
 
 task sourcesJar(type: Jar, dependsOn: classes) {
