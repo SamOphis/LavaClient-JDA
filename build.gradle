@@ -22,12 +22,12 @@ plugins {
 }
 
 group 'samophis'
-version '0.1'
+version '0.1.1'
 description = 'LavaClient integration for JDA.'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-def lavaClientVersion = 'v2.3.0'
+def lavaClientVersion = '2.4.3'
 def jdaVersion = '3.6.0_376'
 
 task sourcesJar(type: Jar, dependsOn: classes) {
@@ -72,10 +72,9 @@ artifacts {
 
 repositories {
     jcenter()
-    maven {url 'https://jitpack.io'}
 }
 
 dependencies {
-    compileOnly group: 'com.github.SamOphis', name: 'LavaClient', version: lavaClientVersion
+    compileOnly group: 'com.github.samophis', name: 'LavaClient', version: lavaClientVersion
     compileOnly group: 'net.dv8tion', name: 'JDA', version: jdaVersion
 }
