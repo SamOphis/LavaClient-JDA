@@ -75,11 +75,8 @@ public class VoiceStateInterceptor extends VoiceStateUpdateHandler {
         if (!member.equals(guild.getSelfMember()))
             return super.handleInternally(content);
         LavaPlayer player = client.newPlayer(id);
-        if (channel_id == null) {
-            if (player.getPlayingTrack() != null)
-                player.stopTrack();
+        if (channel_id == null)
             player.destroyPlayer();
-        }
         else
             ((LavaPlayerImpl) player).setChannelId(channel_id);
         api.getClient().updateAudioConnection(id, guild.getVoiceChannelById(channel_id == null ? -1 : channel_id));
